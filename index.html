@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="Eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>currency converter</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="crypto.html">Crypto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="converter">
+            <h2>Currency Converter</h2>
+            <form id="converter-form">
+                <div class="main-lable">
+                    <label for="currency-from">From:</label>
+                    <select id="currency-from" name="currency-from" required>
+                       
+                    </select>
+
+                    <label for="currency-to"> To:</label>
+                    <select id="currency-to" name="currency-to" required>
+                        
+                    </select>
+                </div>
+                <div class="input-button-wrapper">
+                    <input type="number" id="amount" name="amount" required>
+                    <button type="submit">Convert</button>
+                </div>
+            </form>
+            <div id="result">
+                
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>@2025 currency converter. Jambooce DEV.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
