@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const newsContainer = document.getElementById("news-container");
 
-    
     async function fetchNews() {
-        const apiKey = "8e1ea13995514e24a5617a030ce03eae"; 
-        const url = `https://newsapi.org/v2/everything?q=currency&sortBy=publishedAt&apiKey=${apiKey}`;
+        const apiKey = "a912393178ff58568ee5a48384b1eaf1"; 
+        const url = `https://gnews.io/api/v4/search?q=currency&lang=pt&apikey=${apiKey}`;
 
         try {
             const response = await fetch(url);
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    
     function displayNews(articles) {
         newsContainer.innerHTML = ""; 
 
@@ -30,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             newsArticle.classList.add("news-article");
 
             const articleImage = document.createElement("img");
-            articleImage.src = article.urlToImage || "placeholder.png"; 
+            articleImage.src = article.image || "https://via.placeholder.com/150"; 
             articleImage.alt = article.title;
 
             const articleText = document.createElement("div");
@@ -40,16 +38,23 @@ document.addEventListener("DOMContentLoaded", function () {
             articleTitle.textContent = article.title;
 
             const articleDescription = document.createElement("p");
-            articleDescription.textContent = article.description;
+            articleDescription.textContent = article.description || "no description.";
+
+            const articleLink = document.createElement("a");
+            articleLink.href = article.url;
+            articleLink.textContent = "read more";
+            articleLink.target = "_blank";
 
             articleText.appendChild(articleTitle);
             articleText.appendChild(articleDescription);
+            articleText.appendChild(articleLink);
             newsArticle.appendChild(articleImage);
             newsArticle.appendChild(articleText);
             newsContainer.appendChild(newsArticle);
         });
     }
 
-    
     fetchNews();
 });
+
+
